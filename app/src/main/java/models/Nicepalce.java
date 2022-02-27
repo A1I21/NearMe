@@ -2,7 +2,7 @@ package models;
 
 
 /**
- * custom oject for josn
+ * custom object for json
  */
 public class Nicepalce {
     private String title;
