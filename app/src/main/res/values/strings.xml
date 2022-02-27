@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">resycleview1</string>
+    <string name="welcome_user">hello %s</string>
+</resources>
