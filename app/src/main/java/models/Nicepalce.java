@@ -1,5 +1,9 @@
 package models;
 
+
+/**
+ * custom oject for josn
+ */
 public class Nicepalce {
     private String title;
     private String imageUrl;
