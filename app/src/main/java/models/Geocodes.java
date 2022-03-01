@@ -8,18 +8,8 @@ import com.google.gson.annotations.SerializedName;
 @SuppressWarnings("unused")
 public class Geocodes {
 
-    @SerializedName("front_door")
-    private FrontDoor mFrontDoor;
     @SerializedName("main")
     private Main mMain;
-
-    public FrontDoor getFrontDoor() {
-        return mFrontDoor;
-    }
-
-    public void setFrontDoor(FrontDoor frontDoor) {
-        mFrontDoor = frontDoor;
-    }
 
     public Main getMain() {
         return mMain;

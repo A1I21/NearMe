@@ -17,6 +17,8 @@ public class Location {
     private String mCrossStreet;
     @SerializedName("dma")
     private String mDma;
+    @SerializedName("formatted_address")
+    private String mFormattedAddress;
     @SerializedName("locality")
     private String mLocality;
     @SerializedName("neighborhood")
@@ -56,6 +58,14 @@ public class Location {
 
     public void setDma(String dma) {
         mDma = dma;
+    }
+
+    public String getFormattedAddress() {
+        return mFormattedAddress;
+    }
+
+    public void setFormattedAddress(String formattedAddress) {
+        mFormattedAddress = formattedAddress;
     }
 
     public String getLocality() {

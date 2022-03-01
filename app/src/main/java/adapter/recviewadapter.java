@@ -1,14 +1,11 @@
 package adapter;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,18 +18,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import models.Nicepalce;
+import models.FaqPlaceObj;
+import models.Result;
 
 public class recviewadapter extends RecyclerView.Adapter<recviewadapter.ViewHolder> {
     private static final String TAG = "recviewadapter";
-    private List<Nicepalce>mniceplace=new ArrayList<>();
+    private List<FaqPlaceObj>mniceplace=new ArrayList<>();
+
+    onClickInterface onClickInterface;
+
+    public recviewadapter( Context mcontext,adapter.onClickInterface onClickInterface) {
+        this.onClickInterface = onClickInterface;
+        this.mcontext = mcontext;
+    }
 
     private Context mcontext;
 
-    public recviewadapter(Context mcontext) {
 
-        this.mcontext = mcontext;
-    }
 
     @NonNull
     @Override
@@ -56,6 +58,14 @@ public class recviewadapter extends RecyclerView.Adapter<recviewadapter.ViewHold
                 .setDefaultRequestOptions(defaultOptions)
                 .load(mniceplace.get(position).getImageUrl())
                 .into(((ViewHolder)holder).image);
+
+        holder.image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               onClickInterface.ItemClicked(position);
+            }
+        });
+
     }
 
 
@@ -71,23 +81,35 @@ public class recviewadapter extends RecyclerView.Adapter<recviewadapter.ViewHold
     TextView nig;
     RelativeLayout parentlayout;
 
+Result result=new Result();
+
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image=itemView.findViewById(R.id.image);
             imagename=itemView.findViewById(R.id.image_name);
             nig=itemView.findViewById(R.id.neighborhood);
             parentlayout=itemView.findViewById(R.id.parent_layout);
-
-
+/*
+            image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ;
+                }
+            });
+*/
 
         }
+
+
     }
 
-    public List<Nicepalce> getMniceplace() {
+
+    public List<FaqPlaceObj> getPlacesList() {
         return mniceplace;
     }
 
-    public void setMniceplace(List<Nicepalce> mniceplace) {
+    public void setMniceplace(List<FaqPlaceObj> mniceplace) {
         this.mniceplace = mniceplace;
     }
 }

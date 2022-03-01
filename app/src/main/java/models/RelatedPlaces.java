@@ -10,13 +10,13 @@ import com.google.gson.annotations.SerializedName;
 public class RelatedPlaces {
 
     @SerializedName("children")
-    private List<Object> mChildren;
+    private List<Child> mChildren;
 
-    public List<Object> getChildren() {
+    public List<Child> getChildren() {
         return mChildren;
     }
 
-    public void setChildren(List<Object> children) {
+    public void setChildren(List<Child> children) {
         mChildren = children;
     }
 

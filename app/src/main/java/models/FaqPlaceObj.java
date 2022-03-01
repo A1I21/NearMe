@@ -1,9 +1,18 @@
 package models;
 
-public class Nicepalce {
+public class FaqPlaceObj {
     private String title;
     private String imageUrl;
     private String nigh;
+    private String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getNigh() {
         return nigh;
@@ -13,13 +22,14 @@ public class Nicepalce {
         this.nigh = nigh;
     }
 
-    public Nicepalce(String imageUrl, String title, String nigh) {
+    public FaqPlaceObj(String imageUrl, String title, String nigh, String id) {
         this.title = title;
         this.imageUrl = imageUrl;
         this.nigh=nigh;
+        this.id=id;
     }
 
-    public Nicepalce() {
+    public FaqPlaceObj() {
     }
 
     public String getTitle() {

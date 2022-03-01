@@ -1,5 +1,6 @@
 package reposoris;
 
+import models.GetDetails;
 import models.SearchPlaces;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -14,12 +15,12 @@ public interface APISer {
     Call<SearchPlaces> getplace(@Query("ll") String loc);
 
 
-/*
+
     @Headers("Authorization: fsq3py+s6TDhEFfVeNUIVXQZ+bKAseJsigmMpiyLXrVqQKk=")
     @GET("places/{fsq_id}")
-    Call<DetailsPlaceses> getDet(@Path("fsq_id") String IDPlace);
+    Call<GetDetails> getDet(@Path("fsq_id") String IDPlace);
 
-*/
+
 
 
 

@@ -27,6 +27,16 @@ import retrofit2.Retrofit;
 
 public class MainViewModel extends AndroidViewModel {
     private MutableLiveData<SearchPlaces> mSearchpalce;
+    private String det;
+
+    public String getDet() {
+        return det;
+    }
+
+    public void setDet(String det) {
+        this.det = det;
+    }
+
     private Repos mRpo;
 
 
@@ -34,11 +44,12 @@ public class MainViewModel extends AndroidViewModel {
 
     public MainViewModel(@NonNull Application application) {
         super(application);
-         person driver=new person("aa","aa");
+
          mRpo =new Repos();
 
 
         this.mSearchpalce=mRpo.getPlaces("41.8781,-87.6298");
+       // this.det=mRpo.
 
     }
 

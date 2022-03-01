@@ -2,6 +2,7 @@ package reposoris;
 
 import androidx.lifecycle.MutableLiveData;
 
+import models.GetDetails;
 import models.SearchPlaces;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,4 +31,7 @@ public class Repos {
         });
         return data;
     }
+
+
+   
 }
