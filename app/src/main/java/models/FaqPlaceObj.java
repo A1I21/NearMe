@@ -1,6 +1,8 @@
 package models;
 
 public class FaqPlaceObj {
+
+
     private String title;
     private String imageUrl;
     private String nigh;
