@@ -29,13 +29,6 @@ public class MainViewModel extends AndroidViewModel {
     private MutableLiveData<SearchPlaces> mSearchpalce;
     private String det;
 
-    public String getDet() {
-        return det;
-    }
-
-    public void setDet(String det) {
-        this.det = det;
-    }
 
     private Repos mRpo;
 

@@ -13,14 +13,15 @@ public class Repos {
     public Repos() {
 
     }
-    public MutableLiveData<SearchPlaces> getPlaces(String ll){
+
+    public MutableLiveData<SearchPlaces> getPlaces(String ll) {
         final MutableLiveData<SearchPlaces> data = new MutableLiveData<>();
         RetroClass.getapi().getplace(ll).enqueue(new Callback<SearchPlaces>() {
             @Override
             public void onResponse(Call<SearchPlaces> call, Response<SearchPlaces> response) {
-              if(response.isSuccessful()){
-                  data.setValue(response.body());
-              }
+                if (response.isSuccessful()) {
+                    data.setValue(response.body());
+                }
 
             }
 
@@ -33,5 +34,23 @@ public class Repos {
     }
 
 
-   
+    public MutableLiveData<GetDetails> getDetails(String Det) {
+        final MutableLiveData<GetDetails> data = new MutableLiveData<>();
+
+        RetroClass.getapi().getDet(Det).enqueue(new Callback<GetDetails>() {
+            @Override
+            public void onResponse(Call<GetDetails> call, Response<GetDetails> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<GetDetails> call, Throwable t) {
+
+            }
+        });
+
+        return data;
+    }
 }
+
+
