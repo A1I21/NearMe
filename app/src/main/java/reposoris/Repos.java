@@ -36,11 +36,12 @@ public class Repos {
 
     public MutableLiveData<GetDetails> getDetails(String Det) {
         final MutableLiveData<GetDetails> data = new MutableLiveData<>();
-
         RetroClass.getapi().getDet(Det).enqueue(new Callback<GetDetails>() {
             @Override
             public void onResponse(Call<GetDetails> call, Response<GetDetails> response) {
-
+            if(response.isSuccessful()){
+                data.setValue(response.body());
+            }
             }
 
             @Override

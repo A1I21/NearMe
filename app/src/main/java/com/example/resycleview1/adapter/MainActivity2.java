@@ -1,6 +1,7 @@
 package com.example.resycleview1.adapter;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -21,6 +22,7 @@ TextView placeName;
 TextView fid;
 MapView MV;
 private MainViewModel2 mainViewModel2;
+    private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,12 +35,19 @@ private MainViewModel2 mainViewModel2;
         ID=getIntent().getExtras().getString("FID");
 
        // fid.setText(ID);
-       // mainViewModel2= ViewModelProviders.of(this).get(MainViewModel2.class);
+       mainViewModel2= ViewModelProviders.of(this).get(MainViewModel2.class);
 
+mainViewModel2.getMgetDetails().observe(this, new Observer<GetDetails>() {
+    @Override
+    public void onChanged(GetDetails getDetails) {
 
-        GetDetails getDetails=new GetDetails();
-      String results= getDetails.getName();
+        String results=ID;
+        results= getDetails.getFsqId();
         fid.setText(results);
+
+    }
+});
+
 
            // FaqPlaceObj faqPlaceObj = new FaqPlaceObj();
           //  String current = results;
