@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
               for (int i = 0; i < results.size(); i++) {
                   FaqPlaceObj faqPlaceObj = new FaqPlaceObj();
                   Result current = results.get(i);
-
                   faqPlaceObj.setTitle(current.getName());
                   faqPlaceObj.setNigh(current.getLocation().getAddress());
 

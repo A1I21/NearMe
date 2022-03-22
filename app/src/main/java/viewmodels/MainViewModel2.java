@@ -17,12 +17,12 @@ public class MainViewModel2 extends AndroidViewModel {
     public MainViewModel2(@NonNull Application application) {
         super(application);
         mRepo = new Repos();
-        this.MgetDetails = mRepo.getDetails("5a187743ccad6b307315e6fe");
+
 
     }
 
-    public MutableLiveData<GetDetails> getMgetDetails() {
-        return MgetDetails;
+    public MutableLiveData<GetDetails> getMgetDetails(String id) {
+        return mRepo.getDetails(id);
     }
 
     public void setMgetDetails(MutableLiveData<GetDetails> mgetDetails) {
