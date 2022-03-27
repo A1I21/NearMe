@@ -7,6 +7,9 @@ public class FaqPlaceObj {
     private String imageUrl;
     private String nigh;
     private String id;
+    private Geocodes Location;
+
+
 
     public String getId() {
         return id;
@@ -24,11 +27,12 @@ public class FaqPlaceObj {
         this.nigh = nigh;
     }
 
-    public FaqPlaceObj(String imageUrl, String title, String nigh, String id) {
+    public FaqPlaceObj(String imageUrl, String title, String nigh, String id,Geocodes location) {
         this.title = title;
         this.imageUrl = imageUrl;
         this.nigh=nigh;
         this.id=id;
+        this.Location=location;
     }
 
     public FaqPlaceObj() {
@@ -48,6 +52,14 @@ public class FaqPlaceObj {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public Geocodes getLocation() {
+        return Location;
+    }
+
+    public void setLocation(Geocodes location) {
+        Location = location;
     }
 
 }

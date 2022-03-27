@@ -2,6 +2,7 @@ package com.example.resycleview1.adapter;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import java.util.List;
 import adapter.onClickInterface;
 import adapter.recviewadapter;
 import models.FaqPlaceObj;
+import models.Geocodes;
 import models.Result;
 import models.SearchPlaces;
 import viewmodels.MainViewModel;
@@ -41,13 +43,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void ItemClicked(int clickedPos) {
                 FaqPlaceObj clickedPlace =madapter.getPlacesList().get(clickedPos);
+
           String resid=clickedPlace.getId();
+                Geocodes LongLatgeo=clickedPlace.getLocation();
+               double Latitude= LongLatgeo.getMain().getLatitude();
+                double Longitude= LongLatgeo.getMain().getLongitude();
                 Intent intent=new Intent(MainActivity.this,MainActivity2.class);
                 intent.putExtra("FID",resid);
+                intent.putExtra("L1", Latitude);
+                intent.putExtra("L2", Longitude);
                 startActivity(intent);
-
-
-
             }
         };
 
@@ -67,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                   Result current = results.get(i);
                   faqPlaceObj.setTitle(current.getName());
                   faqPlaceObj.setNigh(current.getLocation().getAddress());
-
+                 faqPlaceObj.setLocation(current.getGeocodes());
                   faqPlaceObj.setId(current.getFsqId());
 
                   String iconurl = current.getCategories().get(0).getIcon().getPrefix()+current.getCategories().get(0).getIcon().getSuffix();

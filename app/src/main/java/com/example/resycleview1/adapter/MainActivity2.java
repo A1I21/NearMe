@@ -19,6 +19,7 @@ import java.util.StringJoiner;
 
 import models.Category;
 import models.FaqPlaceObj;
+import models.Geocodes;
 import models.GetDetails;
 import models.Result;
 import viewmodels.MainViewModel2;
@@ -40,15 +41,16 @@ private MainViewModel2 mainViewModel2;
         goB=findViewById(R.id.goButton);
         saveB=findViewById(R.id.Savebutton);
         catogery=findViewById(R.id.catogery);
-
-
         String ID;
+        Double l1,l2;
         ID=getIntent().getExtras().getString("FID");
+       l1=getIntent().getExtras().getDouble("L1");
+        l2=getIntent().getExtras().getDouble("L2");
+        //encode the google maps URL
 
 
 
-
-    mainViewModel2= ViewModelProviders.of(this).get(MainViewModel2.class);
+        mainViewModel2= ViewModelProviders.of(this).get(MainViewModel2.class);
 
     mainViewModel2.getMgetDetails(ID).observe(this, new Observer<GetDetails>() {
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -59,6 +61,8 @@ private MainViewModel2 mainViewModel2;
         placeName.setText(nameReaslts);
         adress=getDetails.getLocation().getAddress();
         fid.setText(adress);
+
+
         List<Category> listcategory=getDetails.getCategories();
         StringBuffer output=new StringBuffer();
 
@@ -71,6 +75,6 @@ private MainViewModel2 mainViewModel2;
         catogery.setText(output);
     }
 });
-    }
 
+    }
 }
