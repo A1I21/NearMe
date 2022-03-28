@@ -5,15 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.resycleview1.R;
 import com.google.android.gms.maps.MapView;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.StringJoiner;
 
@@ -46,7 +51,18 @@ private MainViewModel2 mainViewModel2;
         ID=getIntent().getExtras().getString("FID");
        l1=getIntent().getExtras().getDouble("L1");
         l2=getIntent().getExtras().getDouble("L2");
-        //encode the google maps URL
+
+        goB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        Uri.parse("https://www.google.com/maps/search/?api=1&query="+l1+","+l2));
+                startActivity(intent);
+
+              
+            }
+        });
 
 
 
